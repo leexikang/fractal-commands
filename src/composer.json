@@ -1,0 +1,12 @@
+{
+    "name": "min/fractalcommands",
+    "description": "Laravel commands for fractal",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Min San",
+            "email": "leexikang@gmail.com"
+        }
+    ],
+    "require": {}
+}
