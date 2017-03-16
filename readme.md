@@ -5,7 +5,11 @@ For more about Fractal Please go to [Fractal Document](http://fractal.thephpleag
 ```
 composer require min/fractalcommands
 ```
-
+##### add service provider
+dd class to config/app.php
+```
+Min\FractalCommands\FractalCommandsServiceProvider::class
+```
 #### Commands
  * php artisan fractal:init (create App/Api/Tranformer/ and Controllers/ApiControler) 
  * php artisan tranformer:create {Tranformer} --model={model} (Create Tranformer in App\Api\Tranformer\) 
