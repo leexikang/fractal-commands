@@ -1,10 +1,15 @@
 ### Fractal-commands commands for using Fractal on Laravel's project. 
 For more about Fractal Please go to [Fractal Document](http://fractal.thephpleague.com/). 
 
+### Install
+```
+composer require min/fractalcommands
+```
+
 #### Commands
  * php artisan fractal:init (create App/Api/Tranformer/ and Controllers/ApiControler) 
  * php artisan tranformer:create {Tranformer} --model={model} (Create Tranformer in App\Api\Tranformer\) 
- 
+
  ### Usages 
  To use fractal on your controller, extend the Controller first which is created by the fractal:init command. 
  Then call the tranform method povided by the Api Controller and pass the Sepcific tranformer class. 
