@@ -2,11 +2,18 @@
     "name": "min/fractalcommands",
     "description": "Laravel commands for fractal",
     "license": "MIT",
+    "keywords": ["fractal", "laravel", "commands"],
     "authors": [
         {
             "name": "Min San",
             "email": "leexikang@gmail.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Min\\FractalCommands\\": "src"
+        }
+    }
 }
