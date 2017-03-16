@@ -47,7 +47,16 @@ class FractalInit extends Command
 
     private function createDirectory($path){
         $dir = app_path() . $path;
-        File::makeDirectory($dir);
+        if(File::exists($dir)){
+            $this->info("Directory " . $path . " already exist");
+            if($this->confirm("Do you want to replace it ?")){
+                File::deleteDirectory($dir);
+                
+                File::makeDirectory($dir);
+            }            
+        }else{
+            File::makeDirectory($dir);
+        }
     }
     private function createApiController($content){
         $file = app_path() ."/Http/Controllers/ApiController.php";
