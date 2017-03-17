@@ -2,7 +2,6 @@
 namespace Min\FractalCommands\Commands;
 
 use Illuminate\Console\Command;
-use File;
 
 class FractalTranformer extends Command
 {
@@ -40,8 +39,15 @@ class FractalTranformer extends Command
         $class = $this->argument('tranformer');
         $model = $this->option('model');
         $data = compact('class', 'model');
-        $file = app_path() . "/Api/Tranformer/" . $class . ".php";
-        File::put($file, $this->loadTemplate($data));
+        $path = "app/Api/Tranformer/";
+        if(!file_exists($path)){
+            $this->error($path . " doesn't exist");
+
+        }
+        $file = $path . $class . ".php";
+        $fs = fopen($file, 'x');
+        fwrite($fs, $this->loadTemplate($data));
+        fclose($fs);
         
     }
 

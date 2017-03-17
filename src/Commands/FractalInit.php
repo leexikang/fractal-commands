@@ -3,7 +3,6 @@
 namespace Min\FractalCommands\Commands;
 
 use Illuminate\Console\Command;
-use File;
 
 class FractalInit extends Command
 {
@@ -46,21 +45,24 @@ class FractalInit extends Command
     }
 
     private function createDirectory($path){
-        $dir = app_path() . $path;
-        if(File::exists($dir)){
+        $dir = "app/" . $path;
+        if(file_exists($dir)){
             $this->info("Directory " . $path . " already exist");
-            if($this->confirm("Do you want to replace it ?")){
-                File::deleteDirectory($dir);
-                
-                File::makeDirectory($dir);
-            }            
+
         }else{
             File::makeDirectory($dir);
         }
     }
     private function createApiController($content){
-        $file = app_path() ."/Http/Controllers/ApiController.php";
-        File::put($file, $content);
+        $file =  "app/Http/Controllers/ApiController.php";
+        if(file_exists($file)){
+            $this->info($file . " exist");
+        }else{
+            $fs = fopen($file, 'x');
+            fwrite($fs, $content);
+            fclose($fx);
+
+        }
     }
     private function createApiDirectory(){
         $this->createDirectory("/Api");
